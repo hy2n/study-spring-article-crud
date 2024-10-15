@@ -2,8 +2,9 @@ package spring1.testapp.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
+import org.hibernate.mapping.Array;
 
+import java.util.List;
 import java.util.UUID;
 
 @Data
@@ -22,4 +23,7 @@ public class ArticleEntity {
 
     @Column(name = "author")
     private String author;
+
+    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<CommentEntity> comments;
 }

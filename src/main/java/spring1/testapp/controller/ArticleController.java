@@ -9,17 +9,17 @@ import spring1.testapp.service.ArticleService;
 import java.util.List;
 
 @RestController() //restcontroller 선언
-@RequestMapping("/article")
+@RequestMapping("/articles")
 @RequiredArgsConstructor
 public class ArticleController {
     private final ArticleService articleService;
 
-    @GetMapping("/")
+    @GetMapping("")
     public List<ArticleResponse> getAllArticle(){
         return articleService.GetAllArticle();
     }
 
-    @PostMapping("/")
+    @PostMapping("")
     public ArticleResponse createArticle(@RequestBody ArticleRequest articleRequest){
         return articleService.CreateArticle(articleRequest);
     }
